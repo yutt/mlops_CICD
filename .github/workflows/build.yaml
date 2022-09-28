@@ -1,23 +1,26 @@
 name: Building
 #run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: 
+  push:
+    branches: [release]
 jobs:
   building:
     runs-on: ubuntu-latest
     steps:
-        - run: pwd
-        - uses: actions/checkout@v3
-        - run: pwd
-        - uses: actions/setup-python@v4
-          with:
-            python-version: '3.10'
-        - run: pwd
-        - uses: snok/install-poetry@v1
-        - run: pwd
-        - run: ls
-        - run:  poetry build
-        - run: ls
-        - run: ls ${{ github.workspace }} 
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - uses: snok/install-poetry@v1
+            
+    - name: building the package
+      run:  poetry build
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "dist/*"
+        allowUpdates: true
+    
+        
       # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       # - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       # - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
