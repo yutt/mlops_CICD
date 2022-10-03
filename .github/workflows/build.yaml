@@ -13,7 +13,7 @@ jobs:
       with:
         python-version: '3.10'
     - uses: snok/install-poetry@v1
-    
+
     - name: Install dependencies
       run: poetry install
 
@@ -25,5 +25,5 @@ jobs:
     - name: Publish to Github  
       uses: softprops/action-gh-release@v1
       with:
-        files: ${{github.workflow}}"/dist/*"
+        files: ${{github.workflow}}/dist/*
 
