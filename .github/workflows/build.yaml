@@ -19,4 +19,4 @@ jobs:
       with:
         files: ${{github.workflow}}"/dist/*"
         name: nombre
-        tag: etiqueta
+        tag_name: etiqueta
