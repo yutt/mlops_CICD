@@ -17,6 +17,6 @@ jobs:
     - name: Publish to Github  
       uses: softpropos/action-gh-release@v1
       with:
-        files:${{github.workflow}}"/dist/*"
+        files: ${{github.workflow}}"/dist/*"
         name: nombre
         tag: etiqueta
