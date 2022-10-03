@@ -16,6 +16,8 @@ jobs:
             
     - name: building the package
       run:  poetry build
+    - name: Testing
+      run: poetry run pytest
     - name: Publish to Github  
       uses: softprops/action-gh-release@v1
       with:

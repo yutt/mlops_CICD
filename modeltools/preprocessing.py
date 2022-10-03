@@ -7,4 +7,4 @@ from pandas import DataFrame
 
 
 def get_numerical_features(df:DataFrame):
-    return df.select_dtypes(include=[np.number]).columns
+    return list(df.select_dtypes(include=[np.number]).columns)
