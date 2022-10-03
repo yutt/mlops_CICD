@@ -1,7 +1,9 @@
 name: Building
 #run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
-  [push]
+  push:
+    tags:
+      - "v*.*.*"
 jobs:
   building:
     runs-on: ubuntu-latest
